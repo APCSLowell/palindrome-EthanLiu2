@@ -1,20 +1,22 @@
-public void setup()
-{
-  String lines[] = new String[]{"test", "rotator", "rewriter", "nurses run", "Madam, I'm Adam!", "A Man! A Plan! A Canal! Panama!"};
+import processing.core.PApplet;
 
-  System.out.println("there are " + lines.length + " lines");
-  for (int i=0; i < lines.length; i++)
+public class Sketch extends PApplet {
+  public void setup()
   {
-
-    if (palindrome(lines[i])==true)
+    String lines[] = loadStrings("palindromes.txt");
+    System.out.println("there are " + lines.length + " lines");
+    for (int i=0; i < lines.length; i++) 
     {
-      System.out.println(lines[i] + " IS a palindrome.");
-    } else
-    {
-      System.out.println(lines[i] + " is NOT a palindrome.");
+      if(palindrome(lines[i])==true)
+      {
+        System.out.println(lines[i] + " IS a palindrome.");
+      }
+      else
+      {
+        System.out.println(lines[i] + " is NOT a palindrome.");
+      }
     }
   }
-}
 public boolean palindrome(String word)
 {
   String s="";
@@ -56,4 +58,5 @@ public String onlyLetters(String sString) {
     }
   }
   return s;
+}
 }
